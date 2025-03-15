@@ -11,7 +11,7 @@ servers:
 paths:
   /add:
     get:
-      summary: Add two number
+      summary: Add two numer
       description: Returns the sum of two numbers provided as query parameters
       operationId: addNumbers
       parameters:
