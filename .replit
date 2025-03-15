@@ -8,7 +8,7 @@ channel = "stable-24_05"
 run = ["sh", "-c", "python client.py"]
 
 [workflows]
-runButton = "Run Server"
+runButton = "Run Client"
 
 [[workflows.workflow]]
 name = "Run Server"
