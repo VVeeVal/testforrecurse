@@ -1,0 +1,101 @@
+openapi: 3.0.0
+info:
+  title: Calculator API
+  description: A simple REST API that provides basic arithmetic operations
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /add:
+    get:
+      summary: Add two numbers
+      description: Returns the sum of two numbers provided as query parameters
+      operationId: addNumbers
+      parameters:
+        - name: a
+          in: query
+          description: First number
+          required: true
+          schema:
+            type: integer
+        - name: b
+          in: query
+          description: Second number
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: integer
+                    description: The sum of the two numbers
+                example:
+                  result: 15
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    description: Error message
+                example:
+                  detail: "Please provide both 'a' and 'b' as integers."
+
+  /subtract:
+    get:
+      summary: Subtract two numbers
+      description: Returns the result of subtracting the second number from the first
+      operationId: subtractNumbers
+      parameters:
+        - name: a
+          in: query
+          description: First number (minuend)
+          required: true
+          schema:
+            type: integer
+        - name: b
+          in: query
+          description: Second number (subtrahend)
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: integer
+                    description: The result of the subtraction
+                example:
+                  result: 5
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    description: Error message
+                example:
+                  detail: "Please provide both 'a' and 'b' as integers."
+
+components:
+  schemas: {} 
