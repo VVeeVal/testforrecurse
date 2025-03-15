@@ -6,3 +6,24 @@ channel = "stable-24_05"
 
 [deployment]
 run = ["sh", "-c", "python client.py"]
+
+[workflows]
+runButton = "Run Server"
+
+[[workflows.workflow]]
+name = "Run Server"
+author = 37324967
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "uvicorn api:app --host 0.0.0.0 --port 8000"
+
+[[workflows.workflow]]
+name = "Run Client"
+author = 37324967
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python client.py"
