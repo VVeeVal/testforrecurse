@@ -11,10 +11,10 @@ def call_add_api(a, b):
 
 def call_subtract_api(a, b):
     response = requests.get('http://0.0.0.0:8000/subtract',
-    params={
-        'a': a,
-        'b': b
-    })
+                            params={
+                                'a': a,
+                                'b': b
+                            })
     if response.status_code == 200:
         print(f"Subtraction Result: {response.json()['result']}")
     else:
@@ -22,5 +22,5 @@ def call_subtract_api(a, b):
 
 
 if __name__ == '__main__':
-    call_add_api(10, 5)
+    call_add_api(10, "s")
     call_subtract_api(10, 5)
