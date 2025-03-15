@@ -3,6 +3,17 @@ from typing import Optional
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    """Root endpoint that returns available endpoints."""
+    return {
+        "endpoints": {
+            "/": "This help message",
+            "/add": "Add two numbers (params: a, b)",
+            "/subtract": "Subtract two numbers (params: a, b)"
+        }
+    }
+
 @app.get("/add")
 async def add(a: Optional[int] = None, b: Optional[int] = None):
     """Add two numbers.
