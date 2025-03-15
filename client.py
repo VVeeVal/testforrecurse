@@ -22,5 +22,5 @@ def call_subtract_api(a, b):
 
 
 if __name__ == '__main__':
-    call_add_api(10, "s")
+    call_add_api(10, "p")
     call_subtract_api(10, 5)
